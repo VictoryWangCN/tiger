@@ -1,12 +1,12 @@
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
+import control.CommandLine;
+import control.Control;
 import lexer.Lexer;
 import lexer.Token;
 import parser.Parser;
-import control.CommandLine;
-import control.Control;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class Tiger
 {
@@ -24,7 +24,7 @@ public class Tiger
     // the straight-line interpreter (and compiler)    
     switch (Control.ConSlp.action){
     case NONE:
-      System.exit(0);
+      //System.exit(0);
       break;
     default:
       slp.Main slpmain = new slp.Main();
