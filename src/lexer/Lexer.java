@@ -16,6 +16,7 @@ public class Lexer {
     static {
         keywords.put("boolean", Kind.TOKEN_BOOLEAN);
         keywords.put("class", Kind.TOKEN_CLASS);
+        keywords.put("else", Kind.TOKEN_ELSE);
         keywords.put("extends", Kind.TOKEN_EXTENDS);
         keywords.put("false", Kind.TOKEN_FALSE);
         keywords.put("if", Kind.TOKEN_IF);
@@ -151,7 +152,7 @@ public class Lexer {
                         columnPos = 1;
                     }
 
-                    System.out.println(comments);
+                    //System.out.println(comments);
 
                     return nextTokenInternal();
                 } else if ('*' == cc) {
@@ -173,7 +174,7 @@ public class Lexer {
                         comments.append((char)cc);
                     } while (true);
 
-                    System.out.println(comments);
+                    //System.out.println(comments);
                     return nextTokenInternal();
                 }
             default:
