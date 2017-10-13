@@ -1,9 +1,9 @@
 package control;
 
-import java.util.LinkedList;
-
-import util.Bug;
 import control.Control.ConSlp;
+import util.Bug;
+
+import java.util.LinkedList;
 
 public class CommandLine
 {
@@ -41,7 +41,7 @@ public class CommandLine
   @SuppressWarnings("unchecked")
   public CommandLine()
   {
-    this.args = new util.Flist<Arg<Object>>().list(new Arg<Object>("dump",
+    this.args = new util.Flist().list(new Arg<Object>("dump",
         "{ast}", "dump information about the given ir", Kind.String, (ss) -> {
           String s = (String) ss;
           if (s.equals("ast")) {

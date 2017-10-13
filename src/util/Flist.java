@@ -1,12 +1,12 @@
 package util;
 
-public class Flist<X>
+public class Flist
 {
   public Flist()
   {
   }
 
-  public java.util.LinkedList<X> list(
+  public <X> java.util.LinkedList<X> list(
       @SuppressWarnings("unchecked") X... args)
   {
     java.util.LinkedList<X> list = new java.util.LinkedList<X>();

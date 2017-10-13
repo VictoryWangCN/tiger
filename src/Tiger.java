@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import ast.Ast.Program;
+import ast.Fac;
 import lexer.Lexer;
 import lexer.Token;
 import parser.Parser;
@@ -76,17 +77,17 @@ public class Tiger
       e.printStackTrace();
       System.exit(1);
     }
-    
+
     // pretty printing the AST, if necessary
     if (dumpAst) {
       ast.PrettyPrintVisitor pp = new ast.PrettyPrintVisitor();
       theAst.accept(pp);
     }
-    
+
     // elaborate the AST, report all possible errors.
     elaborator.ElaboratorVisitor elab = new elaborator.ElaboratorVisitor();
     theAst.accept(elab);
-    
+
     return;
   }
 }
