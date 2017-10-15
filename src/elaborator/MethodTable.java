@@ -3,13 +3,15 @@ package elaborator;
 import ast.Ast.Dec;
 import ast.Ast.Type;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class MethodTable {
     private java.util.Hashtable<String, Type.T> table;
+    private Map<String, Type.T> unusedVars;
 
     public MethodTable() {
         this.table = new java.util.Hashtable<String, Type.T>();
+        this.unusedVars = new LinkedHashMap<>();
     }
 
     // Duplication is not allowed
@@ -22,6 +24,7 @@ public class MethodTable {
                 System.exit(1);
             }
             this.table.put(decc.id, decc.type);
+            this.unusedVars.put(decc.id, decc.type);
         }
 
         for (Dec.T dec : locals) {
@@ -31,12 +34,15 @@ public class MethodTable {
                 System.exit(1);
             }
             this.table.put(decc.id, decc.type);
+            this.unusedVars.put(decc.id, decc.type);
         }
+
 
     }
 
     // return null for non-existing keys
     public Type.T get(String id) {
+        this.unusedVars.remove(id);
         return this.table.get(id);
     }
 
@@ -44,11 +50,20 @@ public class MethodTable {
         System.out.println(toString());
     }
 
+    public Map<String, Type.T> getUnusedVars() {
+        return unusedVars;
+    }
+
     @Override
     public String toString() {
+        return toString(4);
+    }
+
+    public String toString(int indent) {
+        String isr = new String(new char[indent]).replace('\0', ' ');
         StringBuilder sb = new StringBuilder();
         this.table.forEach((s, t) -> {
-            sb.append(s).append(": ").append(t).append('\n');
+            sb.append(isr).append(s).append(": ").append(t).append('\n');
 
 
         });

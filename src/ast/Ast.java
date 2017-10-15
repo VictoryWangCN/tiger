@@ -9,7 +9,7 @@ public class Ast
   // type
   public static class Type
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
       // boolean: -1
       // int: 0
@@ -22,6 +22,7 @@ public class Ast
     // boolean
     public static class Boolean extends T
     {
+      public static final Boolean INSTANCE = new Boolean();
       public Boolean()
       {
       }
@@ -77,6 +78,7 @@ public class Ast
     // int
     public static class Int extends T
     {
+      public static final Int INSTANCE = new Int();
       public Int()
       {
       }
@@ -103,6 +105,8 @@ public class Ast
     // int[]
     public static class IntArray extends T
     {
+      public static final IntArray INSTANCE = new IntArray();
+
       public IntArray()
       {
       }
@@ -132,7 +136,7 @@ public class Ast
   // dec
   public static class Dec
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
@@ -159,7 +163,7 @@ public class Ast
   // expression
   public static class Exp
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
@@ -479,7 +483,7 @@ public class Ast
   // statement
   public static class Stm
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
@@ -605,7 +609,7 @@ public class Ast
   // method
   public static class Method
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
@@ -641,7 +645,7 @@ public class Ast
   // class
   public static class Class
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
@@ -673,7 +677,7 @@ public class Ast
   // main class
   public static class MainClass
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
@@ -703,7 +707,7 @@ public class Ast
   // whole program
   public static class Program
   {
-    public static abstract class T implements ast.Acceptable
+    public static abstract class T extends BaseAcceptable
     {
     }
 
